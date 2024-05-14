@@ -44,10 +44,8 @@ def get_gps():
     offset = request.args.get('offset', default=0, type=int)
     count = request.args.get('count', default=1, type=int)
 
-    print(point_id)
     gps_data = db.session.query(GPS).filter_by(point_id=point_id).offset(offset).limit(count).all()
 
-    print(gps_data)
 
     result = [{
         "id": gps.id,
